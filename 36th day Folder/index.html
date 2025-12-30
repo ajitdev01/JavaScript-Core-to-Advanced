@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>36th Day js</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Unit Converter</h1>
+        <div class="row1">
+            <input type="number" id="values" placeholder="value">
+        </div>
+        <div class="row2">
+            <select id="fromUnit">
+                <option disabled selected>From</option>
+                <option value="Gram">Gram</option>
+                <option value="Killogram">Killogram</option>
+                <option value="Meter">Meter</option>
+                <option value="Centimeter">Centimeter</option>
+                <option value="Killometer">Killometer</option>
+                <option value="Litre">Litre</option>
+                <option value="Mililitre">Mililitre</option>
+            </select>
+            <select id="toUnit">
+                <option disabled selected>To</option>
+                <option value="Gram">Gram</option>
+                <option value="Killogram">Killogram</option>
+                <option value="Meter">Meter</option>
+                <option value="Centimeter">Centimeter</option>
+                <option value="Killometer">Killometer</option>
+                <option value="Litre">Litre</option>
+                <option value="Mililitre">Mililitre</option>
+            </select>
+        </div>
+        <div class="row3">
+            <button onclick="convert()">Convert</button>
+        </div>
+        <div class="row4">
+            <span id="result">----</span>
+        </div>
+    </div>
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
