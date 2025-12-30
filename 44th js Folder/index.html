@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>44th js Folder</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 60vh;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .otp-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #otp {
+            font-size: 10rem;
+            margin: 10px 0;
+            letter-spacing: 5px;
+            font-weight: bold;
+        }
+
+        .btn {
+            margin-top: 50px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Maths bulit-in Func </h1>
+
+    <div class="container">
+        <div class="otp-container">
+            <span id="otp">000000</span>
+        </div>
+        <div class="btns">
+            <button class="btn" onclick="genOtp()">Generate</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

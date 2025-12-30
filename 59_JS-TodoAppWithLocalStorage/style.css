@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont;
+}
+
+body {
+    background: linear-gradient(135deg, #f8e8c1, #f3d59b);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.container {
+    width: 1000px;
+    max-width: 95%;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+/* Input Row */
+.one {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.one input {
+    width: 80%;
+    height: 52px;
+    border-radius: 26px 0 0 26px;
+    padding: 0 20px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.one button {
+    width: 70px;
+    border-radius: 0 26px 26px 0;
+    border: none;
+    background: #4caf50;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.one button:hover {
+    background: #3e8e41;
+}
+
+/* Todo Section */
+.two h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.two .danger {
+    background: #e53935;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.two .danger:hover {
+    background: #c62828;
+}
+
+/* Todo List */
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+li {
+    background: #fff3e0;
+    margin-top: 10px;
+    padding: 14px 18px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+li span {
+    cursor: pointer;
+}
+
+li span.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+li button {
+    background: none;
+    border: none;
+    color: #e53935;
+    font-size: 18px;
+    cursor: pointer;
+}

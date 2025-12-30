@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joke Generator</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+          crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>😂 Joke Generator</h2>
+
+        <div class="header">
+            <div>Category: <span id="cat">—</span></div>
+            <div>Type: <span id="joketype">—</span></div>
+        </div>
+
+        <div class="jokeplace">
+            <p id="joke"></p>
+            <p id="setup"></p>
+            <p id="delivery"></p>
+        </div>
+
+        <div class="buttons">
+            <button onclick="getJoke('Any')">Random</button>
+            <button onclick="getJoke('Programming')">Programming</button>
+            <button onclick="getJoke('Pun')">Pun</button>
+            <button onclick="getJoke('Misc')">Misc</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

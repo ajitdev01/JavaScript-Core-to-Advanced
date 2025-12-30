@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+    margin: 20px;
+    text-align: center;
+    line-height: 100px;
+    font-size: 24px;
+    border: 2px solid blue;
+}
+.btns{
+    margin: 2px;
+    font-size: 18px;
+}
+.btns>button{
+    width: 70px;
+    height: 30px;
+    margin: 5px;
+}
+    </style>
+</head>
+<body id="body">
+    
+    
+    <div class="container">
+        <div class="image">
+            <img id="image" src="bulb-off.png" alt="">
+        </div>
+        <div class="btns">
+            <button onclick="bulb('on')">ON</button>
+            <button onclick="bulb('off')">OFF</button>
+            <button onclick="bulb('night')">Dim</button>
+        </div>
+    </div>
+    
+    <!-- <div class="box" id="box"></div> -->
+
+    <script src="script.js"></script>
+</body>
+</html>

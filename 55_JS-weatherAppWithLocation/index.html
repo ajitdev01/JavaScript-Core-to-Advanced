@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Buddy</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container-fluid min-vh-60 d-flex align-items-center justify-content-center">
+        <div class="weather-card">
+            <!-- Header -->
+            <div class="card-header text-center">
+                <h1 class="mb-0"><i class="bi bi-cloud-sun"></i> Weather Buddy</h1>
+                <p class="text-muted mb-0">Your personal weather companion</p>
+            </div>
+
+            <!-- Search Form -->
+            <div class="card-body">
+                <div class="search-box mb-2">
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-text bg-white border-end-0">
+                            <i class="bi bi-search"></i>
+                        </span>
+                        <input type="text" class="form-control border-start-0 ps-0" id="city"
+                            placeholder="Enter city name..." onkeypress="if(event.key === 'Enter') getWeather()">
+                        <button class="btn btn-primary px-4" onclick="getWeather()">
+                            <i class="bi bi-arrow-right-circle me-2"></i>Check Weather
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Weather Info -->
+                <div class="weather-info" id="info" style="display: none;">
+                    <!-- City Name & Date -->
+                    <div class="text-center mb-2">
+                        <h2 class="city-name mb-1" id="cityName"></h2>
+                        <p class="text-muted" id="date"></p>
+                    </div>
+
+                    <!-- Main Temperature Display -->
+                    <div class="text-center main-temp-display mb-2">
+                        <img src="" id="icon" alt="Weather Icon" class="weather-icon">
+                        <h1 class="display-1 fw-bold mb-0" id="temp"></h1>
+                        <p class="lead text-capitalize" id="desc"></p>
+                    </div>
+
+                    <!-- Weather Details Grid -->
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="info-card">
+                                <div class="d-flex align-items-center">
+                                    <div class="icon-box bg-primary">
+                                        <i class="bi bi-thermometer-half"></i>
+                                    </div>
+                                    <div class="ms-3">
+                                        <p class="text-muted mb-0 small">Feels Like</p>
+                                        <h5 class="mb-0" id="feels"></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info-card">
+                                <div class="d-flex align-items-center">
+                                    <div class="icon-box bg-info">
+                                        <i class="bi bi-droplet"></i>
+                                    </div>
+                                    <div class="ms-3">
+                                        <p class="text-muted mb-0 small">Humidity</p>
+                                        <h5 class="mb-0" id="humidity"></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info-card">
+                                <div class="d-flex align-items-center">
+                                    <div class="icon-box bg-success">
+                                        <i class="bi bi-wind"></i>
+                                    </div>
+                                    <div class="ms-3">
+                                        <p class="text-muted mb-0 small">Wind Speed</p>
+                                        <h5 class="mb-0" id="wind"></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info-card">
+                                <div class="d-flex align-items-center">
+                                    <div class="icon-box bg-warning">
+                                        <i class="bi bi-speedometer2"></i>
+                                    </div>
+                                    <div class="ms-3">
+                                        <p class="text-muted mb-0 small">Pressure</p>
+                                        <h5 class="mb-0" id="pressure"></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Loading Spinner -->
+                <div id="loading" class="weather-loader d-none">
+                    <div class="capybaraloader">
+                        <div class="capybara">
+                            <div class="capyhead">
+                                <div class="capyear">
+                                    <div class="capyear2"></div>
+                                </div>
+                                <div class="capyear"></div>
+                                <div class="capymouth">
+                                    <div class="capylips"></div>
+                                    <div class="capylips"></div>
+                                </div>
+                                <div class="capyeye"></div>
+                                <div class="capyeye"></div>
+                            </div>
+                            <div class="capyleg"></div>
+                            <div class="capyleg2"></div>
+                            <div class="capyleg2"></div>
+                            <div class="capy"></div>
+                        </div>
+                        <div class="loader">
+                            <div class="loaderline"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>47th Js Folder</title>
+    <style>
+        body {
+            background-color: grey;
+        }
+
+        .container {
+            width: 450px;
+            height: 500px;
+            background-color: white;
+            margin: 0 auto;
+            margin-top: 100px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px black;
+            text-align: center;
+        }
+
+        .display {
+            width: 350px;
+            height: 50px;
+            background-color: gray;
+            margin: 0 auto;
+            margin-top: 20px;
+            font-size: 20px;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .display>input {
+            width: 250px;
+            height: 48px;
+            border: none;
+            font-size: 20px;
+            text-align: center;
+            background: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .display>button {
+            width: 80px;
+            height: 48px;
+            border: none;
+            background-color: blue;
+            color: white;
+            font-size: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .controls {
+            width: 350px;
+            height: 330px;
+            margin: 0 auto;
+            margin-top: 20px;
+            text-align: left;
+            background-color: bisque;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .form-input {
+            margin-top: 20px;
+        }
+
+        .form-input>label {
+            font-size: 20px;
+        }
+
+        .form-input>input[type=range] {
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .form-input>input {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .form-input>button {
+            width: 100%;
+            height: 40px;
+            background-color: blue;
+            color: white;
+            border: none;
+            font-size: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Password Generator</h1>
+        <div class="display">
+            <input type="text" id="password" disabled>
+            <button onclick="copyPass()">Copy</button>
+        </div>
+        <div class="controls">
+            <div class="form-input">
+                <label for="" id="lenshow">10</label>
+                <input type="range" id="len" value="10" min="4" max="20" onchange="lenControl()">
+            </div>
+            <div class="form-input">
+                <input type="checkbox" name="" id="ucase" checked><label for="">Include Uppercase (A-Z)</label>
+            </div>
+            <div class="form-input">
+                <input type="checkbox" name="" id="lcase" checked><label for="">Include Lowercase (a-z)</label>
+            </div>
+            <div class="form-input">
+                <input type="checkbox" name="" id="nums" checked><label for="">Include Numbers (0-9)</label>
+            </div>
+            <div class="form-input">
+                <input type="checkbox" name="" id="syms" checked><label for="">Include Symbols (@#$)</label>
+            </div>
+            <div class="form-input">
+                <button onclick="showPassword()">Generate Password</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

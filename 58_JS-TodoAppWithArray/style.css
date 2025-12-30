@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont;
+}
+
+body {
+    background: linear-gradient(135deg, aliceblue, #f3d8a8);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 0;
+    text-align: center;
+}
+
+/* Main Card */
+.container {
+    width: 1000px;
+    max-width: 95%;
+    min-height: 800px;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+/* Input Row */
+.one {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.one > input {
+    width: 100%;
+    max-width: 800px;
+    height: 52px;
+    border-radius: 26px 0 0 26px;
+    padding: 0 20px;
+    font-size: 1.1rem;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.one > input:focus {
+    border-color: #5bb3a2;
+    box-shadow: 0 0 0 2px rgba(91,179,162,0.25);
+}
+
+.one > button {
+    width: 120px;
+    height: 54px;
+    border: none;
+    background: #5bb3a2;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 0 26px 26px 0;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.one > button:hover {
+    background: #4aa08f;
+    transform: translateY(-1px);
+}
+
+/* List */
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+ul > li {
+    background: #fff4e3;
+    margin-top: 10px;
+    padding: 14px 18px;
+    border-radius: 14px;
+    font-size: 1rem;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+ul > li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
