@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Card Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="main">
+
+        <!-- form start -->
+        <div class="form-container">
+            <img src="https://brainzima.com/assets/img/logo-brainzima-icon.png" class="logo" alt="Logo">
+            <h2 class="title">Form fill</h2>
+            <input type="text" placeholder="Name" id="name" class="infield">
+            <input type="text" placeholder="Regd No" id="regd" class="infield">
+            <input type="text" placeholder="Course" id="course" class="infield">
+            <input type="text" placeholder="Photo URL" id="purl" class="infield">
+            <br>
+            <button class="btn" onclick="genCard()">Generate</button>
+        </div>
+        <!-- form end -->
+
+        <!-- mid start -->
+        <div class="mid-container">
+            <h2 class="title"> wait your card generate.....</h2>
+            <img src="https://i.pinimg.com/originals/45/e4/79/45e479ae0f8355a254862992bac33f5b.gif" width="100%">
+            <div class="loader" id="loader" style="display: none;">
+                <img src="https://i.gifer.com/ZZ5H.gif" alt="Loading...">
+            </div> 
+        </div>
+
+        <!-- mid end -->
+
+        <!-- id card start -->
+        <div class="card-container">
+           
+                <div class="card">
+                    <h2 class="title">BRAINZIMA INNOVATION</h2>
+                    <h2 class="title">ID CARD</h2>
+                    <img src="https://via.placeholder.com/150" alt="" class="photu" id="photu">
+                    <p class="info" id="regdv">Regd No</p>
+                    <p class="info" id="namev">Name</p>
+                    <p class="info" id="coursev">Course</p>
+                    <img src="https://quickchart.io/qr?text=Brainzima&size=150" alt="" class="qr" id="qr">
+            </div>
+        </div>
+        <!-- id card end -->
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+body {
+    background-color: #ECEBDE;
+}
+.main {
+    background-color: #D7D3BF;
+    width: 100%;
+    height:100vh;
+    margin: auto;
+    display: flex;
+    border-radius: 20px;
+}
+.form-container {
+    width: 33%;
+    min-height: 100%;
+    background-color:#A59D84;
+    text-align: center;
+}
+.mid-container {
+    width: 33%;
+    min-height: 100%;
+    background-color:#bebcb3;
+}
+.card-container {
+    width: 33%;
+    min-height: 100%;
+    background-color:#A59D84;
+}
+.logo {
+    width: 150px;
+    height: 150px;
+    margin-top: 20px;
+}
+.title {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
+    color:white;
+    margin-top: 20px;
+}
+.infield {
+    width: 80%;
+    height: 40px;
+    border-radius: 20px;
+    margin-top: 20px;
+    padding-left: 25px;
+    border: 1px solid gray;
+}
+/* ID card Design */
+.card {
+    margin: auto;
+    width: 80%;
+    background-color: beige;
+    text-align: center;
+    border-radius: 20px;
+    height:;
+}
+.photu {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.qr {
+    border-radius: 20px;
+}
+
+@keyframes inputSlide {
+    0% {
+        background: linear-gradient(to right, #f6c4e7 50%, white 50%);
+        background-size: 200% 100%;
+        background-position: right bottom;
+    }
+    100% {
+        background-position: left bottom;
+    }
+}
+
+.infield {
+    width: 80%;
+    height: 40px;
+    border-radius: 20px;
+    margin-top: 20px;
+    padding-left: 25px;
+    border: 1px solid rgb(239, 168, 218);
+    cursor: text;
+    transition: all 0.3s ease;
+    background: linear-gradient(to right, #f5a4ed 50%, rgb(255, 255, 255) 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+}
+
+.infield:hover, .infield:focus {
+    animation: inputSlide 1s ease forwards;
+    border-color: #f672dd;
+    color: white;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 47, 179, 0.2);
+}
+@keyframes colorSlide {
+    0% {
+        background: linear-gradient(to right, #f5c2eb 50%, rgb(255, 255, 255) 50%);
+        background-size: 200% 100%;
+        background-position: right bottom;
+    }
+    100% {
+        background-position: left bottom;
+    }
+}
+
+.btn {
+    width: 150px;
+    height: 40px;
+    border-radius: 25px;
+    background-color: blanchedalmond;
+    margin-top: 25px;
+    border: 1px solid gray;
+    cursor: pointer;
+    transition: all 1s ease;
+    background: linear-gradient(to right, #fcb3e8 50%, rgb(255, 255, 255) 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+}
+
+.btn:hover {
+    animation: colorSlide 0.5s ease forwards;
+    color: white;
+}
+@keyframes stepRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    10% {
+        transform: rotate(36deg);
+    }
+    20% {
+        transform: rotate(72deg);
+    }
+    30% {
+        transform: rotate(108deg);
+    }
+    40% {
+        transform: rotate(144deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    60% {
+        transform: rotate(216deg);
+    }
+    70% {
+        transform: rotate(252deg);
+    }
+    80% {
+        transform: rotate(288deg);
+    }
+    90% {
+        transform: rotate(324deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+    margin-top: 20px;
+    animation: stepRotate 10s steps(10) infinite;
+}
+
+/* Loader Styles */
+.loader {
+    text-align: center;
+    margin-top: 20px;
+
+}
+
+.loader img {
+    width: 50px;  
+    height: 50px;
+}
