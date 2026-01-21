@@ -1,0 +1,539 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    user-select: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    background: #000000ce;
+}
+
+/* Theme Variables */
+:root {
+    --bg-primary: #000000;
+    --bg-secondary: #1a1a1a;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --accent: #00d4ff;
+    --accent-glow: rgba(0, 212, 255, 0.4);
+    --btn-primary: #2a2a2a;
+    --btn-secondary: #1a1a1a;
+    --btn-operator: #00d4ff;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] {
+    --bg-primary: #f5f5f7;
+    --bg-secondary: #ffffff;
+    --text-primary: #000000;
+    --text-secondary: #666666;
+    --accent: #007aff;
+    --accent-glow: rgba(0, 122, 255, 0.4);
+    --btn-primary: #ffffff;
+    --btn-secondary: #e8e8ed;
+    --btn-operator: #007aff;
+    --glass-bg: rgba(0, 0, 0, 0.03);
+    --glass-border: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="neon"] {
+    --bg-primary: #0a0014;
+    --bg-secondary: #1a0033;
+    --text-primary: #00ffff;
+    --text-secondary: #ff00ff;
+    --accent: #ff00ff;
+    --accent-glow: rgba(255, 0, 255, 0.6);
+    --btn-primary: #1a0033;
+    --btn-secondary: #2a0044;
+    --btn-operator: #ff00ff;
+    --glass-bg: rgba(255, 0, 255, 0.1);
+    --glass-border: rgba(255, 0, 255, 0.3);
+}
+
+.calculator-container {
+    width: 100vw;
+    height: 100vh;
+    background: var(--bg-primary);
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.bg-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 20% 50%, var(--accent-glow) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, var(--accent-glow) 0%, transparent 50%);
+    opacity: 0.3;
+    animation: pulse 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-primary);
+    z-index: 10;
+}
+
+.icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-primary);
+    background: var(--glass-bg);
+}
+
+.icon-btn:hover {
+    background: var(--glass-bg);
+    transform: scale(1.05);
+}
+
+.icon-btn:active {
+    transform: scale(0.95);
+}
+
+.display-area {
+    padding: 20px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 10px;
+    overflow: hidden;
+}
+
+.expression {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    min-height: 30px;
+    text-align: right;
+    overflow-x: auto;
+    white-space: nowrap;
+    max-width: 100%;
+}
+
+.display {
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: var(--text-primary);
+    text-align: right;
+    overflow-x: auto;
+    white-space: nowrap;
+    letter-spacing: -2px;
+    text-shadow: 0 0 20px var(--accent-glow);
+    max-width: 100%;
+}
+
+.mode-toggle {
+    display: flex;
+    gap: 10px;
+    padding: 10px 20px;
+    justify-content: center;
+}
+
+.mode-btn {
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    background: var(--btn-secondary);
+}
+
+.mode-btn.active {
+    background: var(--btn-operator);
+    color: #ffffff;
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.buttons-container {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons-grid {
+    padding: 20px;
+    display: grid;
+    gap: 12px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.basic-grid {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.scientific-grid {
+    grid-template-columns: repeat(5, 1fr);
+    font-size: 0.85rem;
+}
+
+.btn {
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-size: 1.3rem;
+    font-weight: 500;
+    min-height: 60px;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    outline: none;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+}
+
+.btn:active::before {
+    width: 100%;
+    height: 100%;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn-primary {
+    background: var(--btn-primary);
+    color: var(--text-primary);
+}
+
+.btn-secondary {
+    background: var(--btn-secondary);
+    color: var(--text-secondary);
+}
+
+.btn-operator {
+    background: var(--btn-operator);
+    color: #ffffff;
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.btn-operator.active {
+    animation: operatorPulse 0.5s ease;
+}
+
+@keyframes operatorPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.btn-zero {
+    grid-column: span 2;
+}
+
+.history-panel {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 90%;
+    max-width: 400px;
+    height: 100vh;
+    background: var(--bg-secondary);
+    transition: right 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.history-panel.active {
+    right: 0;
+}
+
+.history-item {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--glass-border);
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.history-item:hover {
+    background: var(--glass-bg);
+}
+
+.history-expression {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.history-result {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.settings-panel {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    background: var(--bg-secondary);
+    transition: bottom 0.3s ease;
+    z-index: 1000;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.settings-panel.active {
+    bottom: 0;
+}
+
+.settings-content {
+    padding: 30px 20px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.setting-item {
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.theme-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.theme-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.theme-btn.active {
+    border-color: var(--accent);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.theme-dark {
+    background: linear-gradient(135deg, #000, #333);
+}
+
+.theme-light {
+    background: linear-gradient(135deg, #fff, #f0f0f0);
+}
+
+.theme-neon {
+    background: linear-gradient(135deg, #ff00ff, #00ffff);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.memory-indicator {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 15px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.memory-indicator.active {
+    opacity: 1;
+}
+
+@media (min-width: 768px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .calculator-container {
+        max-width: 450px;
+        height: 90vh;
+        border-radius: 30px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 3px;
+}
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 26px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: var(--accent);
+}
+
+input:checked+.slider:before {
+    transform: translateX(24px);
+}
+
+.error {
+    color: #ff6b6b !important;
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+}

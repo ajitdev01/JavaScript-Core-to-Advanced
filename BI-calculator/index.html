@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Calculator Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator-container" data-theme="dark">
+        <div class="bg-animation"></div>
+        <div class="memory-indicator" id="memoryIndicator">M</div>
+        
+        <div class="header">
+            <div class="icon-btn" onclick="toggleSettings()">
+                <i class="fas fa-cog"></i>
+            </div>
+            <div style="font-weight: 600; font-size: 1.1rem;">BI-CALCUTER</div>
+            <div class="icon-btn" onclick="toggleHistory()">
+                <i class="fas fa-history"></i>
+            </div>
+        </div>
+        
+        <div class="display-area">
+            <div class="expression" id="expression"></div>
+            <div class="display" id="display">0</div>
+        </div>
+        
+        <div class="mode-toggle">
+            <div class="mode-btn active" onclick="switchMode('basic')">Basic</div>
+            <div class="mode-btn" onclick="switchMode('scientific')">Scientific</div>
+        </div>
+        
+        <div class="buttons-container">
+            <div class="buttons-grid basic-grid" id="buttonsGrid"></div>
+        </div>
+    </div>
+    
+    <div class="history-panel" id="historyPanel">
+        <div class="header">
+            <div style="font-weight: 600; font-size: 1.1rem;">History</div>
+            <div class="icon-btn" onclick="clearHistory()">
+                <i class="fas fa-trash"></i>
+            </div>
+        </div>
+        <div id="historyContent" style="flex: 1; overflow-y: auto;"></div>
+    </div>
+    
+    <div class="settings-panel" id="settingsPanel">
+        <div class="settings-content">
+            <h3 style="color: var(--text-primary); margin-bottom: 20px; font-size: 1.5rem;">Settings</h3>
+            
+            <div class="setting-item">
+                <span>Theme</span>
+            </div>
+            <div class="theme-options">
+                <div class="theme-btn theme-dark active" onclick="changeTheme('dark')"></div>
+                <div class="theme-btn theme-light" onclick="changeTheme('light')"></div>
+                <div class="theme-btn theme-neon" onclick="changeTheme('neon')"></div>
+            </div>
+            
+            <div class="setting-item">
+                <span>Haptic Feedback</span>
+                <label class="switch">
+                    <input type="checkbox" id="hapticToggle" checked onchange="toggleHaptic()">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            
+            <div class="setting-item">
+                <span>Sound Effects</span>
+                <label class="switch">
+                    <input type="checkbox" id="soundToggle" onchange="toggleSound()">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            
+            <div class="setting-item" style="border: none;">
+                <button class="btn btn-operator" style="width: 100%; margin-top: 20px;" onclick="toggleSettings()">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
