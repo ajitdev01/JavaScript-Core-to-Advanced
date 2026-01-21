@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.main-container {
+    width:100%;
+    min-height:95vh;
+    background-color: aliceblue;
+    margin: auto;
+    display: flex;
+}
+.main-container > div {
+    width:30%;
+    min-height:95vh;
+    background-color: rgb(255, 255, 255);
+    border: 1px dotted pink;
+    margin: auto;
+    align-items: center;
+    text-align: center;
+ 
+}
+.infield{
+    width:80%;
+    padding:20px;
+    height: 40px;
+    border-radius: 25px;
+    background-color: rgb(255, 196, 250);
+    border: 1px dotted pink;
+    margin-top: 25px;
+    border: 1px solid gray;
+    cursor: pointer;
+    transition: all 1s ease;
+    background: linear-gradient(to right, #9fbaff 50%, rgb(255, 200, 242) 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    color: black; 
+}
+
+.infield:hover {
+    animation: colorSlide 0.7s ease forwards;
+    color: rgb(255, 252, 252);
+}
+
+@keyframes colorSlide {
+    0% {
+        background-position: right bottom;
+    }
+    100% {
+        background-position: left bottom;
+    }
+}
+.title{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 3rem;
+    color: rgb(19, 85, 139);
+    margin-top:100px;
+}
+.top-color{
+    height:20px;
+    width: 100%;
+    display: flex;
+}
+.top-color > div {
+    width:25%;
+    height:100%;
+}
+.GPAY{
+    height:100PX;
+    margin-top:40PX;
+}
+.BPAY{
+    height:120PX;
+    width:60%;
+}
+.three{
+    height:100px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+.three > img {
+    height:70px;
+    width:30%;
+}
+.btn {
+    width: 150px;
+    height: 40px;
+    border-radius: 25px;
+    background-color: rgb(255, 196, 250);
+    margin-top: 25px;
+    border: 1px solid gray;
+    cursor: pointer;
+    transition: all 1s ease;
+    background: linear-gradient(to right, #ffd4f3 50%, rgb(189, 192, 248) 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    color: black; 
+}
+
+.btn:hover {
+    animation: colorSlide 0.7s ease forwards;
+    color: rgb(135, 151, 254);
+}
+
+@keyframes colorSlide {
+    0% {
+        background-position: right bottom;
+    }
+    100% {
+        background-position: left bottom;
+    }
+}
+
+/* ren p */
+@media (max-width: 1200px) {
+    .main-container > div {
+        width: 45%; 
+    }
+}
+
+@media (max-width: 800px) {
+    .main-container{
+       display:grid;
+       width:100%;
+    }
+    .main-container > div {
+        width:70%;
+        margin-top:20px;
+     }
+}
+
+@media (max-width: 800px) {
+    .main-container{
+       display:grid;
+       width:100%;
+    }
+    .main-container > div {
+        width:80%;
+        margin-top:20px;
+     }
+}
+
+@media (max-width: 400px) {
+    .main-container > div {
+        width: 100%; 
+    }
+
+    .title {
+        font-size: 1.5rem; 
+    }
+
+    .infield, .btn {
+        width: 90%; 
+    }
+}
